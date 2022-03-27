@@ -1,8 +1,11 @@
 package com.example.listwisata.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
-data class DataItem(
+@Parcelize
+data class DataItem (
 
 	@field:SerializedName("provinsi")
 	val provinsi: String? = null,
@@ -29,7 +32,7 @@ data class DataItem(
 	val kategoriId: Int? = null,
 
 	@field:SerializedName("harga")
-	val harga: Int? = null,
+	val harga: String? = null,
 
 	@field:SerializedName("waktu_buka")
 	val waktuBuka: String? = null,
@@ -48,4 +51,4 @@ data class DataItem(
 
 	@field:SerializedName("longitude")
 	val longitude: String? = null
-)
+) : Parcelable

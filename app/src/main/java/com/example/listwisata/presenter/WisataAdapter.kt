@@ -1,6 +1,7 @@
 package com.example.listwisata.presenter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.listwisata.R
 import com.example.listwisata.model.DataItem
+import com.example.listwisata.updatedelete.UpdateDeleteActivity
 import kotlinx.android.synthetic.main.item_row_list.view.*
 
 class WisataAdapter(val dataWisata: List<DataItem?>?, val context: Context) :
@@ -32,6 +34,12 @@ class WisataAdapter(val dataWisata: List<DataItem?>?, val context: Context) :
             .load(dataWisata?.get(position)?.image)
             .error(R.drawable.ic_launcher_background)
             .into(holder.imageWisata)
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, UpdateDeleteActivity::class.java)
+            intent.putExtra("Data", dataWisata?.get(position))
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

@@ -4,7 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Humam/AndroidStudioProjects/ListWisata/app/src/main/res/layout/activity_main.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/Humam/AndroidStudioProjects/ListWisata/app/src/main/res/layout/activity_update.xml" value="0.14114583333333333" />
+        <entry key="..\:/Users/Humam/AndroidStudioProjects/ListWisata/app/src/main/res/layout/activity_update_delete.xml" value="0.14114583333333333" />
+        <entry key="..\:/Users/Humam/AndroidStudioProjects/ListWisata/app/src/main/res/layout/dialog_insert.xml" value="0.22" />
         <entry key="..\:/Users/Humam/AndroidStudioProjects/ListWisata/app/src/main/res/layout/item_row_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Humam/AndroidStudioProjects/ListWisata/app/src/main/res/menu/menu_main.xml" value="0.1" />
       </map>
     </option>
   </component>

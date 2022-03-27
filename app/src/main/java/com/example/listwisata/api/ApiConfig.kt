@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object ApiConfig {
-    private fun getInreceptor() : OkHttpClient {
+    private fun getInterceptor() : OkHttpClient {
         val logging = HttpLoggingInterceptor()
         logging.apply {
             logging.level = HttpLoggingInterceptor.Level.BODY
@@ -27,12 +27,12 @@ object ApiConfig {
         return GsonBuilder().setLenient().create()
     }
 
-    const val baseUrl = "https://ictjuara.000webhostapp.com/api/"
+    const val baseUrl = "https://idnbelajar.000webhostapp.com/api/"
 
     var retrofit = Retrofit.Builder()
         .baseUrl(baseUrl)
         .addConverterFactory(GsonConverterFactory.create(initGson()))
-        .client(getInreceptor())
+        .client(getInterceptor())
         .build()
-    var service: ApiService = retrofit.create<ApiService>(ApiService::class.java)
+    var service: ApiService = retrofit.create(ApiService::class.java)
 }
