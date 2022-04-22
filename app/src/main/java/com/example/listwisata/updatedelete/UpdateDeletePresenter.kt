@@ -10,14 +10,14 @@ import retrofit2.Response
 
 class UpdateDeletePresenter (var updateDeleteView : UpdateDeleteActivity) : BasePresenter<UpdateDeleteConstruct.view>, UpdateDeleteConstruct.Presenter {
     override fun onAttach(view: MainActivity) {
-        TODO("Not yet implemented")
-    }
 
-    override fun onDetach() {
-        updateDeleteView
     }
 
     override fun onAttach(view: UpdateDeleteConstruct) {
+        updateDeleteView
+    }
+
+    override fun onDetach() {
         updateDeleteView
     }
 
@@ -44,9 +44,8 @@ class UpdateDeletePresenter (var updateDeleteView : UpdateDeleteActivity) : Base
                     val sukses = response.body()?.status
 
                     if (sukses != null) {
-                        val dataWisata = response.body()?.data
-                        updateDeleteView?.showMessageUpdate(msg.toString())
                         updateDeleteView?.onSuccessUpdate()
+                        updateDeleteView?.showMessageUpdate(msg.toString())
                     } else {
                         updateDeleteView?.showMessageUpdate(msg.toString())
                     }
@@ -55,10 +54,36 @@ class UpdateDeletePresenter (var updateDeleteView : UpdateDeleteActivity) : Base
             }
 
             override fun onFailure(call: Call<ResponseListWisata>, t: Throwable) {
-                updateDeleteView?.showError(t.localizedMessage.toString())
+                updateDeleteView?.showError(t.message.toString())
             }
 
         })
     }
+
+    override fun deleteWisata(idWisata: String) {
+        ApiConfig.service.deleteWisata(idWisata).enqueue(object :
+        Callback<ResponseListWisata>{
+            override fun onResponse(
+                call: Call<ResponseListWisata>,
+                response: Response<ResponseListWisata>
+            ) {
+                if (response.isSuccessful || response.code() == 200) {
+                    val msg = response.body()?.status
+                    val status = response.body()?.status
+                    if (status != null){
+                        updateDeleteView?.showMessageDelete(msg.toString())
+                        updateDeleteView?.onSuccessDelete()
+                    } else{
+                        updateDeleteView?.showMessageDelete(msg.toString())
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseListWisata>, t: Throwable) {
+                updateDeleteView?.showError(t.message.toString())
+            }
+        })
+    }
+
 
 }

@@ -13,6 +13,6 @@ interface UpdateDeleteConstruct {
     }
     interface Presenter{
         fun editWisata (idWisata: String, katWisata: Int, nameWisata: String, priceWisata: String, descWisata: String, cityWisata: String, provinceWisata: String, addressWisata: String, openWisata: String, latWisata: String, longWisata: String, imgWisata: String)
-
+        fun deleteWisata (idWisata: String)
     }
 }

@@ -58,6 +58,11 @@ class UpdateDeleteActivity : AppCompatActivity() {
             )
             Toast.makeText(this, "Berhasil", Toast.LENGTH_SHORT).show()
         }
+
+        btn_delete.setOnClickListener {
+            updateDeletePresenter?.deleteWisata(reciveDataWisata?.id.toString())
+        }
+
     }
 
 
@@ -73,4 +78,14 @@ class UpdateDeleteActivity : AppCompatActivity() {
     fun showError(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
+
+    fun showMessageDelete(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
+
+    fun onSuccessDelete() {
+        finish()
+    }
+
+
 }

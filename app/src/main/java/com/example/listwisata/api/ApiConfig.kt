@@ -34,5 +34,5 @@ object ApiConfig {
         .addConverterFactory(GsonConverterFactory.create(initGson()))
         .client(getInterceptor())
         .build()
-    var service: ApiService = retrofit.create(ApiService::class.java)
+    var service: ApiService = retrofit.create<ApiService>(ApiService::class.java)
 }
